@@ -1,0 +1,191 @@
+/*
+Theme Name: Secure Living Theme
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --min-screen-width: 320px;
+  --max-screen-width: 1280px;
+  --primary-50: #ecfcff;
+  --primary-100: #d5f6ff;
+  --primary-200: #b4f1ff;
+  --primary-300: #80eaff;
+  --primary-400: #44daff;
+  --primary-500: #19bfff;
+  --primary-600: #01a2ff;
+  --primary-700: #0089fa;
+  --primary-800: #0477db;
+  --primary-900: #0a5d9e;
+  --primary-950: #0c385f;
+  --secondary-50: #f1f3fc;
+  --secondary-100: #e6e8f9;
+  --secondary-200: #d2d6f3;
+  --secondary-300: #b6baeb;
+  --secondary-400: #9999e0;
+  --secondary-500: #7e78d2;
+  --secondary-600: #7366c5;
+  --secondary-700: #6455ad;
+  --secondary-800: #51478c;
+  --secondary-900: #443f70;
+  --secondary-950: #282541;
+  --white: hsla(85, 0%, 100%, 1);
+  --black: hsla(0, 0%, 0%, 1);
+  --space-1: clamp(0.4rem, calc(0vw + 0.4rem), 0.4rem);
+  --space-1-5: clamp(0.6rem, calc(0vw + 0.6rem), 0.6rem);
+  --space-2: clamp(0.8rem, calc(0vw + 0.8rem), 0.8rem);
+  --space-2-5: clamp(1rem, calc(0vw + 1rem), 1rem);
+  --space-3: clamp(1.2rem, calc(0vw + 1.2rem), 1.2rem);
+  --space-3_5: clamp(1.4rem, calc(0vw + 1.4rem), 1.4rem);
+  --space-4: clamp(1.6rem, calc(0vw + 1.6rem), 1.6rem);
+  --space-5: clamp(2rem, calc(0vw + 2rem), 2rem);
+  --space-6: clamp(2.2rem, calc(0.21vw + 2.13rem), 2.4rem);
+  --space-7: clamp(2.6rem, calc(0.21vw + 2.53rem), 2.8rem);
+  --space-8: clamp(3rem, calc(0.21vw + 2.93rem), 3.2rem);
+  --space-9: clamp(3.4rem, calc(0.21vw + 3.33rem), 3.6rem);
+  --space-10: clamp(3.8rem, calc(0.21vw + 3.73rem), 4rem);
+  --space-11: clamp(4.2rem, calc(0.21vw + 4.13rem), 4.4rem);
+  --space-12: clamp(4.6rem, calc(0.21vw + 4.53rem), 4.8rem);
+  --space-14: clamp(5.2rem, calc(0.42vw + 5.07rem), 5.6rem);
+  --space-16: clamp(4.8rem, calc(1.67vw + 4.27rem), 6.4rem);
+  --space-20: clamp(5.6rem, calc(2.5vw + 4.8rem), 8rem);
+  --space-24: clamp(7.2rem, calc(2.5vw + 6.4rem), 9.6rem);
+  --space-28: clamp(7.8rem, calc(3.54vw + 6.67rem), 11.2rem);
+  --space-32: clamp(8.2rem, calc(4.79vw + 6.67rem), 12.8rem);
+  --space-36: clamp(10rem, calc(4.58vw + 8.53rem), 14.4rem);
+  --text-xs: clamp(1.2rem, calc(0vw + 1.2rem), 1.2rem);
+  --text-sm: clamp(1.35rem, calc(0.05vw + 1.33rem), 1.4rem);
+  --text-base: clamp(1.5rem, calc(0.1vw + 1.47rem), 1.6rem);
+  --text-lg: clamp(1.7rem, calc(0.1vw + 1.67rem), 1.8rem);
+  --text-xl: clamp(1.9rem, calc(0.1vw + 1.87rem), 2rem);
+  --text-2xl: clamp(2.2rem, calc(0.21vw + 2.13rem), 2.4rem);
+  --text-3xl: clamp(2.6rem, calc(0.42vw + 2.47rem), 3rem);
+  --text-4xl: clamp(3.2rem, calc(0.42vw + 3.07rem), 3.6rem);
+  --text-5xl: clamp(4rem, calc(0.83vw + 3.73rem), 4.8rem);
+  --text-6xl: clamp(4.8rem, calc(1.25vw + 4.4rem), 6rem);
+  --text-7xl: clamp(5.6rem, calc(1.67vw + 5.07rem), 7.2rem);
+  --text-8xl: clamp(7.2rem, calc(2.5vw + 6.4rem), 9.6rem);
+  --text-9xl: clamp(8.8rem, calc(4.17vw + 7.47rem), 12.8rem);
+  --hero-title-size: var(--text-5xl);
+  --post-title-size: var(--text-3xl);
+  --nav-link-size: var(--text-sm);
+  --header-space: var(--space-s);
+  --btn-space: var(--space-xs) var(--space-s);
+  --card-space: var(--space-s);
+  --footer-space: var(--space-s) var(--space-m);
+  --radius-xs: clamp(0.4rem, calc(0vw + 0.4rem), 0.4rem);
+  --radius-sm: clamp(0.6rem, calc(-0.21vw + 0.87rem), 0.8rem);
+  --radius-md: clamp(1rem, calc(-0.21vw + 1.27rem), 1.2rem);
+  --radius-l: clamp(1.6rem, calc(-0.42vw + 2.13rem), 2rem);
+  --radius-xl: clamp(2.6rem, calc(-0.63vw + 3.4rem), 3.2rem);
+  --radius-full: 999rem;
+  --shadow-sm: 0 1px 2px 0 var(--shadow-primary);
+  --shadow: 0 1px 3px 0 var(--shadow-primary);
+  --shadow-md: 0 4px 6px -1px var(--shadow-primary);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-primary);
+  --shadow-xl: 0 20px 25px -5px var(--shadow-primary);
+  --shadow-2xl: 0 25px 50px -12px var(--shadow-primary);
+}
+
+/*********GLOBAL STYLES**********/
+
+html {
+  font-size: 62.5%;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--black);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+}
+
+h6 {
+  font-size: var(--text-base);
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3xs);
+  padding: var(--space-xs) var(--space-s);
+  background: var(--primary);
+  color: #fff;
+  font-size: var(--text-m);
+  font-weight: 600;
+  border-radius: var(--radius-m);
+  border: 1px solid var(--primary-d-1);
+  box-shadow: var(--shadow-m);
+  transition: all 0.25s ease-in-out;
+  outline: 0;
+}
+
+button:hover {
+  background: var(--primary-d-1);
+  transform: translateY(-0.1rem);
+}
+
+/*********HEADER STYLES**********/
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: var(--space-4) 0;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-logo img {
+  display: block;
+  height: auto;
+  max-width: 200px;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu a {
+  color: var(--text-body);
+  text-decoration: none;
+  font-size: var(--text-base);
+  transition: color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-700);
+}
