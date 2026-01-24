@@ -4,10 +4,10 @@
 if (have_posts()) :
     while (have_posts()) : the_post();
 ?>
-        <article class="container container-fluid">
+        <main class="container">
             <h1 class=""><?php the_title(); ?></h1>
             <?php the_content(); ?>
-        </article>
+        </main>
 <?php
     endwhile;
 endif;

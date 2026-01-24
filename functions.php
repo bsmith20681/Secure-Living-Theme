@@ -8,7 +8,10 @@ add_action('wp_enqueue_scripts', function () {
 add_action('after_setup_theme', function () {
     register_nav_menus([
         'primary' => __('Primary Menu', 'secure-living-theme'),
+        'footer'  => __('Footer Menu', 'secure-living-theme'),
     ]);
+
+    add_theme_support('post-thumbnails');
 });
 
 

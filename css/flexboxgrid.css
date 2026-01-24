@@ -1,10 +1,11 @@
 /* Uncomment and set these variables to customize the grid. */
 
-.container-fluid {
+.container {
+  width: 100%;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 2rem;
-  padding-left: 2rem;
 }
 
 .row {
@@ -21,8 +22,10 @@
   flex-direction: row;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  /*
   margin-right: -1rem;
   margin-left: -1rem;
+  */
 }
 
 .row.reverse {
@@ -248,9 +251,15 @@
   order: 1;
 }
 
+@media only screen and (min-width: 36em) {
+  .container {
+    max-width: 540px;
+  }
+}
+
 @media only screen and (min-width: 48em) {
   .container {
-    width: 46rem;
+    max-width: 720px;
   }
 
   .col-sm,
@@ -465,7 +474,7 @@
 
 @media only screen and (min-width: 62em) {
   .container {
-    width: 61rem;
+    max-width: 960px;
   }
 
   .col-md,
@@ -680,7 +689,7 @@
 
 @media only screen and (min-width: 75em) {
   .container {
-    width: 71rem;
+    max-width: 1140px;
   }
 
   .col-lg,
