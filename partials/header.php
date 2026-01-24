@@ -21,7 +21,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
             </button>
-            <nav class="primary-nav">
+            <nav class="primary-nav" aria-label="Main navigation">
                 <?php
                 wp_nav_menu([
                     'theme_location' => 'primary',
@@ -35,28 +35,3 @@
     </div>
 </header>
 <div class="mobile-menu-overlay"></div>
-
-<script>
-(function() {
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.primary-nav');
-    const overlay = document.querySelector('.mobile-menu-overlay');
-
-    if (toggle && nav && overlay) {
-        toggle.addEventListener('click', function() {
-            const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-            toggle.setAttribute('aria-expanded', !isOpen);
-            nav.classList.toggle('is-open');
-            overlay.classList.toggle('is-visible');
-            document.body.style.overflow = isOpen ? '' : 'hidden';
-        });
-
-        overlay.addEventListener('click', function() {
-            toggle.setAttribute('aria-expanded', 'false');
-            nav.classList.remove('is-open');
-            overlay.classList.remove('is-visible');
-            document.body.style.overflow = '';
-        });
-    }
-})();
-</script>

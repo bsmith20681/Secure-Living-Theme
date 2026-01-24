@@ -9,14 +9,17 @@ x create footer
 Homepage
 
 - create simple 3 column grid similar to websitebuilderexpert
-- create little about author bio
+- create little about author bio (do this later)
 
 Single Post
 
-- create header similar to website builder report
-- add about author box to the bottom
+x create header similar to website builder report
+x add about author box to the bottom
+- import new theme to live site
+- delete old plugins
 - install kadence blocks and blocks pro
 - create floating widget
 
+
 Archive page
-- 
+x create simple archive page

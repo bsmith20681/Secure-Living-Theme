@@ -7,17 +7,17 @@ Theme Name: Secure Living Theme
 :root {
   --min-screen-width: 320px;
   --max-screen-width: 1280px;
-  --primary-50: #ecfcff;
-  --primary-100: #d5f6ff;
-  --primary-200: #b4f1ff;
-  --primary-300: #80eaff;
-  --primary-400: #44daff;
-  --primary-500: #19bfff;
-  --primary-600: #01a2ff;
-  --primary-700: #0089fa;
-  --primary-800: #0477db;
-  --primary-900: #0a5d9e;
-  --primary-950: #0c385f;
+  --primary-50: #eff9ff;
+  --primary-100: #dff2ff;
+  --primary-200: #b8e6ff;
+  --primary-300: #78d4ff;
+  --primary-400: #38c0ff;
+  --primary-500: #06a6f1;
+  --primary-600: #0084ce;
+  --primary-700: #0069a7;
+  --primary-800: #02598a;
+  --primary-900: #084a72;
+  --primary-950: #062e4b;
   /** determine a secondary color later **/
   --secondary-50: #f1f3fc;
   --secondary-100: #e6e8f9;
@@ -78,25 +78,12 @@ Theme Name: Secure Living Theme
   --text-7xl: clamp(5.6rem, calc(1.67vw + 5.07rem), 7.2rem);
   --text-8xl: clamp(7.2rem, calc(2.5vw + 6.4rem), 9.6rem);
   --text-9xl: clamp(8.8rem, calc(4.17vw + 7.47rem), 12.8rem);
-  --hero-title-size: var(--text-5xl);
-  --post-title-size: var(--text-3xl);
-  --nav-link-size: var(--text-sm);
-  --header-space: var(--space-s);
-  --btn-space: var(--space-xs) var(--space-s);
-  --card-space: var(--space-s);
-  --footer-space: var(--space-s) var(--space-m);
   --radius-xs: clamp(0.4rem, calc(0vw + 0.4rem), 0.4rem);
   --radius-sm: clamp(0.6rem, calc(-0.21vw + 0.87rem), 0.8rem);
   --radius-md: clamp(1rem, calc(-0.21vw + 1.27rem), 1.2rem);
   --radius-l: clamp(1.6rem, calc(-0.42vw + 2.13rem), 2rem);
   --radius-xl: clamp(2.6rem, calc(-0.63vw + 3.4rem), 3.2rem);
   --radius-full: 999rem;
-  --shadow-sm: 0 1px 2px 0 var(--shadow-primary);
-  --shadow: 0 1px 3px 0 var(--shadow-primary);
-  --shadow-md: 0 4px 6px -1px var(--shadow-primary);
-  --shadow-lg: 0 10px 15px -3px var(--shadow-primary);
-  --shadow-xl: 0 20px 25px -5px var(--shadow-primary);
-  --shadow-2xl: 0 25px 50px -12px var(--shadow-primary);
 }
 
 /*********GLOBAL STYLES**********/
@@ -142,6 +129,23 @@ h6 {
   font-size: var(--text-base);
 }
 
+a {
+  color: var(--primary-700);
+  transition: 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--primary-900);
+}
+
+.link-muted {
+  color: var(--black);
+}
+
+.link-muted:hover {
+  color: var(--gray-600);
+}
+
 button {
   display: flex;
   align-items: center;
@@ -169,6 +173,7 @@ button:hover {
   background: #fff;
   border-bottom: 1px solid #eee;
   padding: var(--space-4) 0;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
 }
 
 .header-inner {
@@ -180,7 +185,7 @@ button:hover {
 .site-logo img {
   display: block;
   height: auto;
-  max-width: 200px;
+  max-width: 225px;
 }
 
 .nav-menu {
@@ -198,14 +203,8 @@ button:hover {
 }
 
 .nav-menu a {
-  color: var(--text-body);
   text-decoration: none;
   font-size: var(--text-base);
-  transition: color 0.2s ease;
-}
-
-.nav-menu a:hover {
-  color: var(--primary-700);
 }
 
 /* Mobile Menu Toggle */
@@ -545,3 +544,137 @@ button:hover {
     display: none;
   }
 }
+
+/*********SINGLE POST STYLES**********/
+.entry {
+  margin-bottom: var(--space-14);
+}
+.entry-header {
+  padding: var(--space-8) 0;
+  background-color: var(--primary-50);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  font-size: var(--text-sm);
+}
+
+.breadcrumb__separator {
+  color: var(--gray-400);
+}
+
+.breadcrumb__current {
+  color: var(--gray-600);
+}
+
+.entry__title {
+  margin: 0 0 var(--space-4);
+}
+
+.entry__disclaimer {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-3);
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.post-meta__avatar {
+  display: flex;
+}
+
+.post-meta__avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-meta__info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  font-size: var(--text-xs);
+}
+
+.post-meta__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.post-meta__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-meta__date {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-meta__value {
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 30em) {
+  .post-meta__info {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
+/* Author Bio */
+.author-bio {
+  gap: var(--space-5);
+  padding-top: var(--space-4);
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--gray-200);
+}
+
+.author-bio__avatar img {
+  width: 57px;
+  height: 57px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-bio__content {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.author-bio__heading {
+  margin: 0 0 var(--space-5);
+  font-size: var(--text-lg);
+  font-weight: 400;
+}
+
+.author-bio__name {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-base);
+  font-weight: 700;
+}
+
+.author-bio__description {
+  margin: 0;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--gray-700);
+}
+
+@media only screen and (max-width: 30em) {
+  .author-bio {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
