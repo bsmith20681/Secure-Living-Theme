@@ -6,7 +6,7 @@ if (have_posts()) :
 ?>
         <article class="entry">
             <div class="entry-header">
-                <div class="container">
+                <div class="container entry-container">
                     <nav class="breadcrumb" aria-label="Breadcrumb">
                         <a href="<?php echo home_url(); ?>">Home</a>
                         <span class="breadcrumb__separator">&gt;&gt;</span>
@@ -45,7 +45,7 @@ if (have_posts()) :
             </div>
 
 
-            <div class="container" style="max-width: 840px;">
+            <div class="container entry-container">
                 <?php the_content(); ?>
                 <!-- Author Bio -->
                 <div class="author-bio">

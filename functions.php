@@ -1,8 +1,8 @@
 <?php
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('theme-style', get_stylesheet_uri());
-    wp_enqueue_style('spacing', get_template_directory_uri() . './css/spacing-utilties.css');
-    wp_enqueue_style('flexboxgrid', get_template_directory_uri() . './css/flexboxgrid.css');
+    wp_enqueue_style('spacing', get_template_directory_uri() . '/css/spacing-utilties.css');
+    wp_enqueue_style('flexboxgrid', get_template_directory_uri() . '/css/flexboxgrid.css');
 
     wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/theme.js', [], '1.0', true);
 });
