@@ -28,7 +28,7 @@
                                 </div>
                             <?php endif; ?>
 
-                            <div class="post-card__content <?= $count == 1 ? '' : 'justify-content' ?>">
+                            <div class="post-card__content <?= $count == 1 ? '' : 'justify-between' ?>">
                                 <h2 class="post-card__title"><?php the_title(); ?></h2>
 
                                 <div class="post-card__meta">

@@ -8,7 +8,7 @@ x create footer
 
 Homepage
 
-- create simple 3 column grid similar to websitebuilderexpert
+x create simple 3 column grid similar to websitebuilderexpert
 
 Single Post
 
