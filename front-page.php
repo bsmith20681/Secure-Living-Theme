@@ -138,7 +138,7 @@
                 </div>
                 <div class="col-md-6 meet-expert__image-wrap">
                     <!--pic of your reviewing something-->
-                    <img class="meet-expert__image" src="<?php echo get_template_directory_uri(); ?>/images/profile-pic.jpg" alt="profile pic">
+                    <img class="meet-expert__image" src="https://secureliving.com/wp-content/uploads/2026/02/profile-pic-1.jpg" alt="profile pic">
                 </div>
             </div>
         </div>
