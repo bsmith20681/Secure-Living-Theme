@@ -1,27 +1,6 @@
+<?php get_template_part('partials/header'); ?>
+
 <?php
-
-get_template_part('partials/header');
-
-
-//Grab info from ACF if a company is select in post editor to display promo box.
-$company = get_field('select_company_profile');
-
-if ($company) {
-    $company_data = [
-        'name' => get_field('company_name', $company->ID),
-        'logo' => get_field('company_logo', $company->ID),
-        'product_family_picture' => get_field('product_family_picture', $company->ID),
-        'promo' => get_field('promo', $company->ID),
-        'website_link' => get_field('website_link', $company->ID),
-        'phone_number' => get_field('phone_number', $company->ID),
-    ];
-
-    echo '<pre>';
-    var_dump($company, $company_data);
-    echo '</pre>';
-}
-
-
 if (have_posts()) :
     while (have_posts()) : the_post();
 ?>
