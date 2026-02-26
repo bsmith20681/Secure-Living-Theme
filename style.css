@@ -703,7 +703,12 @@ button:hover {
 }
 .entry-header {
   padding: var(--space-8) 0;
-  background-color: var(--primary-50);
+  background-color: var(--primary-900);
+  color: var(--white);
+}
+
+.entry-header a {
+  color: var(--white);
 }
 
 .entry-container {
@@ -720,11 +725,11 @@ button:hover {
 }
 
 .breadcrumb__separator {
-  color: var(--gray-400);
+  color: var(--white);
 }
 
 .breadcrumb__current {
-  color: var(--gray-600);
+  color: var(--white);
 }
 
 .entry__title {
