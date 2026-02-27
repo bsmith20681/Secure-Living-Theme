@@ -22,6 +22,72 @@
 })();
 
 /* ========================================
+   Call a Specialist Dropdown
+   ======================================== */
+(function() {
+    var wrapper = document.querySelector('.call-specialist');
+    if (!wrapper) return;
+
+    var btn = wrapper.querySelector('.call-specialist__btn');
+    var closeBtn = wrapper.querySelector('.call-specialist__close');
+    var overlay = document.querySelector('.call-specialist__overlay');
+
+    function open() {
+        wrapper.classList.add('call-specialist--open');
+        btn.setAttribute('aria-expanded', 'true');
+        if (overlay) overlay.classList.add('is-visible');
+    }
+
+    function close() {
+        wrapper.classList.remove('call-specialist--open');
+        btn.setAttribute('aria-expanded', 'false');
+        if (overlay) overlay.classList.remove('is-visible');
+    }
+
+    btn.addEventListener('click', function() {
+        var isOpen = wrapper.classList.contains('call-specialist--open');
+        isOpen ? close() : open();
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', close);
+    }
+
+    if (overlay) {
+        overlay.addEventListener('click', close);
+    }
+})();
+
+/* ========================================
+   Affiliate Disclaimer Modal
+   ======================================== */
+(function() {
+    var link = document.querySelector('.affiliate-banner__link');
+    var modal = document.querySelector('.affiliate-modal');
+    if (!link || !modal) return;
+
+    var closeBtn = modal.querySelector('.affiliate-modal__close');
+    var overlay = modal.querySelector('.affiliate-modal__overlay');
+
+    function openModal(e) {
+        e.preventDefault();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    link.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+})();
+
+/* ========================================
    Security Match Quiz
    ======================================== */
 jQuery(function($) {
@@ -41,8 +107,9 @@ jQuery(function($) {
         // Update progress bar immediately
         $('.quiz-progress__fill').css('width', (step / totalSteps * 100) + '%');
         $('#quiz-step-current').text(step);
-        $('.quiz-progress__label').toggle(step !== 'thankyou');
-        $('.quiz-progress').toggle(step !== 'thankyou');
+        var showProgress = step !== 'thankyou' && step !== 1;
+        $('.quiz-progress').toggleClass('quiz-progress--visible', showProgress);
+        $('.quiz-progress__label').toggleClass('quiz-progress__label--visible', showProgress);
 
         // Fade out current step, then fade in next
         if ($current.length && $current.data('step') !== step) {
