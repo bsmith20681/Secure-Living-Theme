@@ -4,7 +4,8 @@ add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('spacing', get_template_directory_uri() . '/css/spacing-utilities.css');
     wp_enqueue_style('flexboxgrid', get_template_directory_uri() . '/css/flexboxgrid.css');
 
-    wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/theme.js', [], '1.0', true);
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/theme.js', ['jquery'], '1.0', true);
 });
 
 add_action('after_setup_theme', function () {
