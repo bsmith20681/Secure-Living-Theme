@@ -94,10 +94,10 @@ jQuery(function($) {
     var $quiz = $('#security-quiz');
     if (!$quiz.length) return;
 
-    var ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/XXXXXXX/XXXXXXX/';
-
     var currentStep = 1;
     var totalSteps = 6;
+
+    var $belowSections = $('.brands-section, .how-it-works, .quiz-qa');
 
     function showStep(step) {
         var $current = $quiz.find('.quiz-step--active');
@@ -110,6 +110,18 @@ jQuery(function($) {
         var showProgress = step !== 'thankyou' && step !== 1;
         $('.quiz-progress').toggleClass('quiz-progress--visible', showProgress);
         $('.quiz-progress__label').toggleClass('quiz-progress__label--visible', showProgress);
+
+        // Hide/show sections below the quiz
+        if (step >= 2) {
+            $belowSections.css('opacity', 0);
+            setTimeout(function() {
+                $belowSections.css('display', 'none');
+            }, 300);
+        } else {
+            $belowSections.css('display', '');
+            $belowSections[0].offsetHeight; // force reflow
+            $belowSections.css('opacity', 1);
+        }
 
         // Fade out current step, then fade in next
         if ($current.length && $current.data('step') !== step) {
@@ -216,44 +228,83 @@ jQuery(function($) {
         showStep(currentStep - 1);
     });
 
-    // Form submit
+    // Form submit — validate then allow native POST to form-handler.php
     $quiz.on('submit', function(e) {
-        e.preventDefault();
-        if (!validateStep(6)) return;
+        if (!validateStep(6)) {
+            e.preventDefault();
+            return;
+        }
 
         var $btn = $quiz.find('.quiz-submit');
         $btn.text('Submitting...').prop('disabled', true);
-
-        var data = {
-            property_type: $quiz.find('input[name="property_type"]:checked').val(),
-            cameras: $quiz.find('input[name="cameras"]:checked').val(),
-            monitoring: $quiz.find('input[name="monitoring"]:checked').val(),
-            zip_code: $quiz.find('#zip_code').val().trim(),
-            email: $quiz.find('#email').val().trim(),
-            first_name: $quiz.find('#first_name').val().trim(),
-            last_name: $quiz.find('#last_name').val().trim(),
-            phone: $quiz.find('#phone').val().trim()
-        };
-
-        console.log('Quiz submission data:', data);
-
-        $.ajax({
-            url: ZAPIER_WEBHOOK_URL,
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function() {
-                showStep('thankyou');
-            },
-            error: function() {
-                showStep('thankyou');
-            }
-        });
     });
 
     // Clear error state on input interaction
     $quiz.on('input', '.quiz-input', function() {
         $(this).removeClass('quiz-input--error');
         $(this).closest('.quiz-field-group').find('.quiz-error').remove();
+    });
+
+    // Zip code lookup
+    var zipData = null;
+    var zipSpinnerTimeout = null;
+
+    $quiz.on('input', '#zip_code', function() {
+        var digits = $(this).val().replace(/\D/g, '');
+        $(this).val(digits);
+        var $location = $quiz.find('.quiz-zip-location');
+        var $meta = $quiz.find('.quiz-zip-meta');
+
+        clearTimeout(zipSpinnerTimeout);
+        $meta.removeClass('quiz-zip-meta--loading');
+
+        if (digits.length < 5) {
+            $location.text('');
+            return;
+        }
+
+        // Show spinner
+        $location.text('');
+        $meta.addClass('quiz-zip-meta--loading');
+
+        function doLookup() {
+            var match = null;
+            for (var i = 0; i < zipData.length; i++) {
+                if (zipData[i].zip === digits) {
+                    match = zipData[i];
+                    break;
+                }
+            }
+
+            zipSpinnerTimeout = setTimeout(function() {
+                $meta.removeClass('quiz-zip-meta--loading');
+                $location.text(match ? match.city + ', ' + match.state_id : '');
+            }, 500);
+        }
+
+        if (zipData) {
+            doLookup();
+        } else {
+            $.getJSON(themeData.themeUrl + '/us-zip-codes.json', function(data) {
+                zipData = data;
+                doLookup();
+            });
+        }
+    });
+
+    // Format phone number as (XXX) XXX-XXXX
+    $quiz.on('input', '#phone', function() {
+        var digits = $(this).val().replace(/\D/g, '');
+        var formatted = '';
+
+        if (digits.length < 4) {
+            formatted = digits;
+        } else if (digits.length < 7) {
+            formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3);
+        } else {
+            formatted = '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6, 10);
+        }
+
+        $(this).val(formatted);
     });
 });

@@ -6,6 +6,9 @@ add_action('wp_enqueue_scripts', function () {
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/theme.js', ['jquery'], '1.0', true);
+    wp_localize_script('theme-js', 'themeData', [
+        'themeUrl' => get_template_directory_uri(),
+    ]);
 });
 
 add_action('after_setup_theme', function () {

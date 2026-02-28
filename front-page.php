@@ -12,7 +12,7 @@
                         <div class="hero-quiz">
                             <h3 class="hero-quiz__heading">What are you protecting?</h3>
                             <div class="hero-quiz__options">
-                                <a href="#" class="hero-quiz__option">
+                                <a href="/security-match-quiz/" class="hero-quiz__option">
                                     <span class="hero-quiz__radio"></span>
                                     <span class="hero-quiz__label">House</span>
                                     <svg class="hero-quiz__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#062e4b" viewBox="0 0 256 256">
@@ -20,7 +20,7 @@
                                         <path d="M240,208H224V136l2.34,2.34A8,8,0,0,0,237.66,127L139.31,28.68a16,16,0,0,0-22.62,0L18.34,127a8,8,0,0,0,11.32,11.31L32,136v72H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM48,120l80-80,80,80v88H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48Zm96,88H112V160h32Z"></path>
                                     </svg>
                                 </a>
-                                <a href="#" class="hero-quiz__option">
+                                <a href="/security-match-quiz/" class="hero-quiz__option">
                                     <span class="hero-quiz__radio"></span>
                                     <span class="hero-quiz__label">Apartment</span>
                                     <svg class="hero-quiz__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#062e4b" viewBox="0 0 256 256">
@@ -28,7 +28,7 @@
                                         <path d="M240,208h-8V72a8,8,0,0,0-8-8H184V40a8,8,0,0,0-8-8H80a8,8,0,0,0-8,8V96H32a8,8,0,0,0-8,8V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM40,112H80a8,8,0,0,0,8-8V48h80V72a8,8,0,0,0,8,8h40V208H152V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40H40Zm96,96H120V176h16ZM112,72a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H120A8,8,0,0,1,112,72Zm0,32a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H120A8,8,0,0,1,112,104Zm56,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,104ZM88,136a8,8,0,0,1-8,8H64a8,8,0,0,1,0-16H80A8,8,0,0,1,88,136Zm0,32a8,8,0,0,1-8,8H64a8,8,0,0,1,0-16H80A8,8,0,0,1,88,168Zm24-32a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H120A8,8,0,0,1,112,136Zm56,0a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1,8-8h16a8,8,0,0,1,0,16H176A8,8,0,0,1,168,168Z"></path>
                                     </svg>
                                 </a>
-                                <a href="#" class="hero-quiz__option">
+                                <a href="/security-match-quiz/" class="hero-quiz__option">
                                     <span class="hero-quiz__radio"></span>
                                     <span class="hero-quiz__label">Business</span>
                                     <svg class="hero-quiz__icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#062e4b" viewBox="0 0 256 256">
