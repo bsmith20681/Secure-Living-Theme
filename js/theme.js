@@ -94,6 +94,13 @@ jQuery(function($) {
     var $quiz = $('#security-quiz');
     if (!$quiz.length) return;
 
+    // Capture fbclid from URL if present
+    var urlParams = new URLSearchParams(window.location.search);
+    var fbclid = urlParams.get('fbclid');
+    if (fbclid) {
+        $('#fbclid').val(fbclid);
+    }
+
     var currentStep = 1;
     var totalSteps = 6;
 

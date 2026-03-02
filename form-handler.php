@@ -15,14 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 // Sanitize form data
 $data = array(
-    'property_type' => sanitize_text_field($_POST['property_type'] ?? ''),
-    'cameras'       => sanitize_text_field($_POST['cameras'] ?? ''),
-    'monitoring'    => sanitize_text_field($_POST['monitoring'] ?? ''),
-    'zip_code'      => sanitize_text_field($_POST['zip_code'] ?? ''),
-    'email'         => sanitize_email($_POST['email'] ?? ''),
-    'first_name'    => sanitize_text_field($_POST['first_name'] ?? ''),
-    'last_name'     => sanitize_text_field($_POST['last_name'] ?? ''),
-    'phone'         => sanitize_text_field($_POST['phone'] ?? ''),
+    'property_type'         => sanitize_text_field($_POST['property_type'] ?? ''),
+    'cameras'               => sanitize_text_field($_POST['cameras'] ?? ''),
+    'monitoring'            => sanitize_text_field($_POST['monitoring'] ?? ''),
+    'zip_code'              => sanitize_text_field($_POST['zip_code'] ?? ''),
+    'email'                 => sanitize_email($_POST['email'] ?? ''),
+    'first_name'            => sanitize_text_field($_POST['first_name'] ?? ''),
+    'last_name'             => sanitize_text_field($_POST['last_name'] ?? ''),
+    'phone'                 => sanitize_text_field($_POST['phone'] ?? ''),
+    'fbclid'                => sanitize_text_field($_POST['fbclid'] ?? ''),
+    'xxTrustedFormCertUrl'  => esc_url_raw($_POST['xxTrustedFormCertUrl'] ?? ''),
+    'xxTrustedFormToken'    => esc_url_raw($_POST['xxTrustedFormToken'] ?? ''),
+    'xxTrustedFormPingUrl'  => esc_url_raw($_POST['xxTrustedFormPingUrl'] ?? ''),
+    'timestamp'             => current_time('mysql'),
 );
 
 echo '<pre>';

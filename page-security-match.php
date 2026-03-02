@@ -19,6 +19,7 @@ get_template_part('partials/quiz-header');
 -->
 
             <form id="security-quiz" action="<?php echo get_template_directory_uri(); ?>/form-handler.php" method="POST">
+                <input type="hidden" name="fbclid" id="fbclid" value="">
 
                 <!-- Step 1: Property Type -->
                 <div class="quiz-step quiz-step--active" data-step="1">
@@ -239,5 +240,23 @@ get_template_part('partials/quiz-header');
     </section>
 
 </main>
+
+<!-- TrustedForm -->
+<script type="text/javascript">
+    (function() {
+        var tf = document.createElement('script');
+        tf.type = 'text/javascript';
+        tf.async = true;
+        tf.src = ("https:" == document.location.protocol ? 'https' : 'http') +
+            '://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&use_tagged_consent=true&l=' +
+            new Date().getTime() + Math.random();
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(tf, s);
+    })();
+</script>
+<noscript>
+    <img src='https://api.trustedform.com/ns.gif' />
+</noscript>
+<!-- End TrustedForm -->
 
 <?php get_template_part('partials/footer'); ?>
